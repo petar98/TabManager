@@ -1,7 +1,10 @@
-#include "TabCommander.hpp"
+// #include "TabCommander.hpp"
+
+#include "PromptPrinter.hpp"
 
 int main()
 {
-	TabCommander().operate();
+	PromptPrinter sp;
+	sp();
 	return 0;
 }

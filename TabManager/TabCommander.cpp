@@ -1,6 +1,6 @@
-#include "TabCommander.hpp"
++#include "TabCommander.hpp"
 
-std::string TabCommander::toUpper(std::string command)
+std::string TabCommander::convertToUppercase(std::string command)
 {
 	std::transform(command.begin(), command.end(), command.begin(),
 		[](unsigned char c) { return std::toupper(c); });
@@ -26,7 +26,8 @@ void TabCommander::operate()
 	do
 	{
 		std::cin >> command;
-		command = toUpper(command);
+		command = convertToUppercase(command);
+		// these if elses are going to be substituted with a map
 		if (command == "GO")
 		{
 			std::cin >> value;
