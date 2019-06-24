@@ -1,13 +1,49 @@
-+#include "TabCommander.hpp"
+#include "Client.hpp"
 
-std::string TabCommander::convertToUppercase(std::string command)
+#include <iostream>
+
+Client::Client(const CommandFactory& commandFactory,
+	const PromptPrinter& promptPrinter)
+	:commandFactory(commandFactory),
+	promptPrinter(promptPrinter)
+{
+}
+
+std::string Client::convertToUppercase(std::string command)
 {
 	std::transform(command.begin(), command.end(), command.begin(),
 		[](unsigned char c) { return std::toupper(c); });
 	return command;
 }
 
-void TabCommander::operate()
+void Client::interactWithUser()
+{
+	promptPrinter();
+
+	std::string userInputCommand;
+	std::cin >> userInputCommand;
+	userInputCommand = convertToUppercase(userInputCommand);
+
+	if (userInputCommand == "SORT")
+	{
+		std::string sortCommandArgument;
+		std::cin >> sortCommandArgument;
+	}
+	else
+	{
+		// in another function
+		try
+		{
+			commandFactory.getCommandByType(userInputCommand).execute();
+		}
+		catch(...)
+		{
+			std::cout << "Invalid command";
+		}
+	}
+}
+
+void Client::operate()
 {
 	std::cout << "GO <url> -> load current tab with <url>" << std::endl;
 	std::cout << "INSERT <url> -> insert a tab with <url> after current ";
