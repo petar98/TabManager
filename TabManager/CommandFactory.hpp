@@ -3,15 +3,15 @@
 
 #include <unordered_map>
 #include "Command.hpp"
-#include "Defines.hpp"
+// #include "Defines.hpp" -> it will be removed
 
 #include <string>
 
 class CommandFactory
 {
 public:
-	CommandFactory() = default;
-	~CommandFactory() = default;
+	CommandFactory();
+	~CommandFactory();
 
 	// bool checkCommandExistence(const CommandType);
 	bool checkCommandExistence(const std::string);
@@ -24,6 +24,7 @@ public:
 private:
 	// std::unordered_map<CommandType, Command*> commands;
 	std::unordered_map<std::string, Command*> commands;
+	void initCommands();
 };
 
 #endif

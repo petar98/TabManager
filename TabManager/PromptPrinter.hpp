@@ -5,7 +5,6 @@ class PromptPrinter
 {
 public:
 	void operator()();
-	void print();
 };
 
 #endif
