@@ -2,20 +2,21 @@
 #define CLIENT_HPP_
 
 #include "CommandFactory.hpp"
+#include "PromptPrinter.hpp"
 #include <cctype>
+#include <string>
 
 class Client
 {
 public:
-	Client(const CommandFactory&, const PromptPrinter&);
+	Client(const PromptPrinter&, const CommandFactory&);
 	void interactWithUser();
-	void operate();
+	// void operate();
 private:
 	// TabManager tm;
 	std::string convertToUppercase(std::string);
 	CommandFactory commandFactory;
 	PromptPrinter promptPrinter;
-	// CommandFactory commandFactory
 };
 
 #endif // !CLIENT_HPP_

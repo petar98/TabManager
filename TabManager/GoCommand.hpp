@@ -6,9 +6,10 @@
 class GoCommand : public Command
 {
 public:
+	GoCommand() = default;
 	virtual ~GoCommand() = default;
 
-	void execute() override;
-}
+	virtual void execute() override;
+};
 
 #endif
