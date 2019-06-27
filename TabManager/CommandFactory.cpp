@@ -1,7 +1,14 @@
 #include "CommandFactory.hpp"
+#include "TabManagerServer.hpp"
+
 #include "GoCommand.hpp"
+#include "InsertCommand.hpp"
+#include "BackCommand.hpp"
+#include "ForwardCommand.hpp"
 
 #include <stdexcept>
+
+#include <iostream>
 
 CommandFactory::CommandFactory()
 {
@@ -13,26 +20,28 @@ CommandFactory::~CommandFactory()
 	for (std::unordered_map<std::string, Command*>::iterator i = commands.begin();
 	i != commands.end(); ++i)
 	{
-		delete[] i->second;
+		delete i->second;
 	}
 }
 
 void CommandFactory::initCommands()
 {
-	insertCommand("GO", new GoCommand());
-	insertCommand("INSERT", new GoCommand()); // command should be changed
-	insertCommand("BACK", new GoCommand()); // command should be changed
-	insertCommand("FORWARD", new GoCommand()); // command should be changed
-	insertCommand("REMOVE", new GoCommand()); // command should be changed
-	insertCommand("PRINT", new GoCommand()); // command should be changed
-	insertCommand("URL", new GoCommand()); // command should be changed
-	insertCommand("TIME", new GoCommand()); // command should be changed
-	insertCommand("SEARCH", new GoCommand()); // command should be changed
+	TabManagerServer tabManagerServer;
+
+	insertCommand("GO", new GoCommand(tabManagerServer));
+	insertCommand("INSERT", new InsertCommand(tabManagerServer));
+	insertCommand("BACK", new BackCommand(tabManagerServer));
+	insertCommand("FORWARD", new ForwardCommand(tabManagerServer));
+	insertCommand("REMOVE", new GoCommand(tabManagerServer)); // command should be changed
+	insertCommand("PRINT", new GoCommand(tabManagerServer)); // command should be changed
+	insertCommand("URL", new GoCommand(tabManagerServer)); // command should be changed
+	insertCommand("TIME", new GoCommand(tabManagerServer)); // command should be changed
+	insertCommand("SEARCH", new GoCommand(tabManagerServer)); // command should be changed
 }
 
 bool CommandFactory::checkCommandExistence(const std::string type)
 {
-	auto finder = commands.find(type);
+	std::unordered_map<std::string, Command*>::iterator finder = commands.find(type);
 	if (finder == commands.end())
 	{
 		return false;
@@ -52,14 +61,14 @@ bool CommandFactory::removeCommand(const std::string type)
 		commands.erase(type);
 		return true;
 	}
-	return false;
+	throw std::invalid_argument("non existing command type received");
 }
 
 Command* CommandFactory::getCommandByType(const std::string type)
 {
 	if (!checkCommandExistence(type))
 	{
-		throw std::invalid_argument("non existing command type received");
+		throw std::invalid_argument("Non existing command type received");
 	}
 	return commands.find(type)->second;
 }

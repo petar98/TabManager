@@ -1,5 +1,5 @@
-#ifndef TAB_MANAGER_HPP
-#define TAB_MANAGER_HPP
+#ifndef TAB_MANAGER_SERVER_HPP
+#define TAB_MANAGER_SERVER_HPP
 
 #include "Tab.hpp"
 #include <list>
@@ -8,10 +8,10 @@
 #include <vector>
 #include <utility>
 
-class TabManager
+class TabManagerServer
 {
 public:
-	TabManager();
+	TabManagerServer();
 	void print() const;
 	void go(const std::string);
 	void insert(const std::string);
@@ -53,4 +53,4 @@ private:
 	};
 };
 
-#endif // !TAB_MANAGER_HPP
+#endif // !TAB_MANAGER_SERVER_HPP

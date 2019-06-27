@@ -1,19 +1,11 @@
 #include "Client.hpp"
+#include "Command.hpp"
 
 #include <iostream>
 #include <algorithm>
-// #include <string>
 
-// Client::Client(//const CommandFactory& commandFactory,
-// 	PromptPrinter promptPrinter)
-// 	://commandFactory(commandFactory),
-// 	promptPrinter(promptPrinter)
-// {
-// }
-
-Client::Client(const PromptPrinter&, const CommandFactory&)
+Client::Client(const PromptPrinter&)
 : promptPrinter(promptPrinter)
-, commandFactory(commandFactory)
 {
 }
 
@@ -26,33 +18,21 @@ std::string Client::convertToUppercase(std::string command)
 
 void Client::interactWithUser()
 {
-	promptPrinter();
+	std::string userInputCommand = " ";
+	do
+	{
+		promptPrinter();
+		std::cin >> userInputCommand;
+		userInputCommand = convertToUppercase(userInputCommand);
+		if (commandFactory.checkCommandExistence(userInputCommand))
+		{
+			Command* commandToExecute = commandFactory.getCommandByType(userInputCommand);
+			commandToExecute->execute();
+			delete commandToExecute;
+		}
 
-	std::string userInputCommand;
-	std::cin >> userInputCommand;
-	userInputCommand = convertToUppercase(userInputCommand);
-
-	std::cout << userInputCommand << std::endl;
-
-	std::cout << commandFactory.checkCommandExistence(userInputCommand) << std::endl;
-
-	// if (userInputCommand == "SORT")
-	// {
-	// 	std::string sortCommandArgument;
-	// 	std::cin >> sortCommandArgument;
-	// }
-	// else
-	// {
-	// 	// in another function
-	// 	try
-	// 	{
-	// 		commandFactory.getCommandByType(userInputCommand).execute();
-	// 	}
-	// 	catch(...)
-	// 	{
-	// 		std::cout << "Invalid command";
-	// 	}
-	// }
+	} while (commandFactory.checkCommandExistence(userInputCommand));
+	std::cout << "Exitting..." << std::endl;
 }
 
 // void Client::operate()

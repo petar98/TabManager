@@ -9,7 +9,7 @@
 class Client
 {
 public:
-	Client(const PromptPrinter&, const CommandFactory&);
+	Client(const PromptPrinter&);
 	void interactWithUser();
 	// void operate();
 private:

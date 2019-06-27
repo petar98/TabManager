@@ -6,8 +6,7 @@
 int main()
 {
 	PromptPrinter promptPrinter;
-	CommandFactory commandFactory;
-	Client client(promptPrinter, commandFactory);
+	Client client(promptPrinter);
 	client.interactWithUser();
 	return 0;
 }

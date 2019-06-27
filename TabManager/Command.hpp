@@ -1,6 +1,7 @@
 #ifndef COMMAND_HPP_ 
+#define COMMAND_HPP_ 
 
-// #include "TabManager.hpp"
+#include "TabManagerServer.hpp"
 
 class Command
 {
@@ -10,8 +11,7 @@ public:
 
 	virtual void execute() = 0;
 protected:
-	// TabManager tabManager;
+	
 };
 
-#define COMMAND_HPP_ 
 #endif

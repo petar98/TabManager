@@ -6,10 +6,12 @@
 class GoCommand : public Command
 {
 public:
-	GoCommand() = default;
+	GoCommand(TabManagerServer& tabManagerServer);
 	virtual ~GoCommand() = default;
 
 	virtual void execute() override;
+private:
+	TabManagerServer& tabManagerServer;
 };
 
 #endif

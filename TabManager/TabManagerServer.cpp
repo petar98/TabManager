@@ -1,7 +1,7 @@
 #include "Tab.hpp"
-#include "TabManager.hpp"
+#include "TabManagerServer.hpp"
 
-TabManager::TabManager()
+TabManagerServer::TabManagerServer()
 {
 	Tab empty;
 	tabs.push_front(empty);
@@ -9,7 +9,7 @@ TabManager::TabManager()
 	openedTabs[current->getUrl()] = current;
 }
 
-void TabManager::print() const
+void TabManagerServer::print() const
 {
 	for (auto tab : tabs)
 	{
@@ -21,7 +21,7 @@ void TabManager::print() const
 	}
 }
 
-void TabManager::go(const std::string url)
+void TabManagerServer::go(const std::string url)
 {
 	auto required = openedTabs.find(url);
 	if (required == openedTabs.end())
@@ -36,7 +36,7 @@ void TabManager::go(const std::string url)
 	}
 }
 
-void TabManager::insert(const std::string url)
+void TabManagerServer::insert(const std::string url)
 {
 	auto participant = openedTabs.find(url);
 	if (participant != openedTabs.end())
@@ -63,7 +63,7 @@ void TabManager::insert(const std::string url)
 	current->load(url);
 }
 
-void TabManager::back()
+void TabManagerServer::back()
 {
 	if (current != tabs.begin())
 	{
@@ -72,7 +72,7 @@ void TabManager::back()
 	}
 }
 
-void TabManager::forward()
+void TabManagerServer::forward()
 {
 	auto next = std::next(current);
 	if (next != tabs.end())
@@ -81,7 +81,7 @@ void TabManager::forward()
 	}
 }
 
-void TabManager::remove()
+void TabManagerServer::remove()
 {
 	auto next = std::next(current);
 	openedTabs.erase(current->getUrl());
@@ -106,17 +106,17 @@ void TabManager::remove()
 	}
 }
 
-void TabManager::sortUrl()
+void TabManagerServer::sortUrl()
 {
-	std::stable_sort(tabs.begin(), tabs.end(), CompareTabsUrl());
+	//std::stable_sort(tabs.begin(), tabs.end(), CompareTabsUrl());
 }
 
-void TabManager::sortTime()
+void TabManagerServer::sortTime()
 {
-	std::stable_sort(tabs.begin(), tabs.end(), CompareTabsTime());
+	//std::stable_sort(tabs.begin(), tabs.end(), CompareTabsTime());
 }
 
-void TabManager::search(const std::string word)
+void TabManagerServer::search(const std::string word)
 {
 	std::set<std::string> contentFetcher;
 	std::vector<std::list<Tab>::iterator> tabsContainingWord;

@@ -1,6 +1,6 @@
 #include "Tab.hpp"
 
-#pragma warning(disable: 4996)
+#pragma warning(disable: 4996) // need to be removed
 
 Tab::Tab()
 	:url("about:blank"), fetchTime(std::time(nullptr)), content("")
