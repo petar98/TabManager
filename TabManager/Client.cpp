@@ -22,6 +22,7 @@ void Client::interactWithUser()
 	do
 	{
 		promptPrinter();
+
 		std::cin >> userInputCommand;
 		userInputCommand = convertToUppercase(userInputCommand);
 		if (commandFactory.checkCommandExistence(userInputCommand))

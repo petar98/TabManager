@@ -2,6 +2,7 @@
 #define GO_COMMAND_HPP_
 
 #include "Command.hpp"
+#include "TabManagerServer.hpp"
 
 class GoCommand : public Command
 {
@@ -11,7 +12,7 @@ public:
 
 	virtual void execute() override;
 private:
-	TabManagerServer& tabManagerServer;
+	TabManagerServer tabManagerServer;
 };
 
 #endif

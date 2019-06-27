@@ -27,16 +27,17 @@ CommandFactory::~CommandFactory()
 void CommandFactory::initCommands()
 {
 	TabManagerServer tabManagerServer;
+	std::cout << &tabManagerServer << std::endl;
 
 	insertCommand("GO", new GoCommand(tabManagerServer));
 	insertCommand("INSERT", new InsertCommand(tabManagerServer));
 	insertCommand("BACK", new BackCommand(tabManagerServer));
 	insertCommand("FORWARD", new ForwardCommand(tabManagerServer));
-	insertCommand("REMOVE", new GoCommand(tabManagerServer)); // command should be changed
-	insertCommand("PRINT", new GoCommand(tabManagerServer)); // command should be changed
-	insertCommand("URL", new GoCommand(tabManagerServer)); // command should be changed
-	insertCommand("TIME", new GoCommand(tabManagerServer)); // command should be changed
-	insertCommand("SEARCH", new GoCommand(tabManagerServer)); // command should be changed
+	// insertCommand("REMOVE", new GoCommand(tabManagerServer)); // command should be changed
+	// insertCommand("PRINT", new GoCommand(tabManagerServer)); // command should be changed
+	// insertCommand("URL", new GoCommand(tabManagerServer)); // command should be changed
+	// insertCommand("TIME", new GoCommand(tabManagerServer)); // command should be changed
+	// insertCommand("SEARCH", new GoCommand(tabManagerServer)); // command should be changed
 }
 
 bool CommandFactory::checkCommandExistence(const std::string type)
