@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TabManager", "TabManager\TabManager.vcxproj", "{846911AD-5EB2-4017-8FB8-AF73FE4731E4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unitTests", "unitTests\unitTests.vcxproj", "{5BF236A1-BC07-4869-9A5D-F6BFA958ED7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{846911AD-5EB2-4017-8FB8-AF73FE4731E4}.Release|x64.Build.0 = Release|x64
 		{846911AD-5EB2-4017-8FB8-AF73FE4731E4}.Release|x86.ActiveCfg = Release|Win32
 		{846911AD-5EB2-4017-8FB8-AF73FE4731E4}.Release|x86.Build.0 = Release|Win32
+		{5BF236A1-BC07-4869-9A5D-F6BFA958ED7C}.Debug|x64.ActiveCfg = Debug|x64
+		{5BF236A1-BC07-4869-9A5D-F6BFA958ED7C}.Debug|x64.Build.0 = Debug|x64
+		{5BF236A1-BC07-4869-9A5D-F6BFA958ED7C}.Debug|x86.ActiveCfg = Debug|Win32
+		{5BF236A1-BC07-4869-9A5D-F6BFA958ED7C}.Debug|x86.Build.0 = Debug|Win32
+		{5BF236A1-BC07-4869-9A5D-F6BFA958ED7C}.Release|x64.ActiveCfg = Release|x64
+		{5BF236A1-BC07-4869-9A5D-F6BFA958ED7C}.Release|x64.Build.0 = Release|x64
+		{5BF236A1-BC07-4869-9A5D-F6BFA958ED7C}.Release|x86.ActiveCfg = Release|Win32
+		{5BF236A1-BC07-4869-9A5D-F6BFA958ED7C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

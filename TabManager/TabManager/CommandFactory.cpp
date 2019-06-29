@@ -63,7 +63,6 @@ bool CommandFactory::removeCommand(const std::string type)
 		return true;
 	}
 	throw std::invalid_argument("Non existing command type received");
-	return true;
 }
 
 Command* CommandFactory::getCommandByType(const std::string type)
