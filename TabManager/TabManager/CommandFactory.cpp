@@ -62,7 +62,7 @@ bool CommandFactory::removeCommand(const std::string type)
 		commands.erase(type);
 		return true;
 	}
-	throw std::invalid_argument("non existing command type received");
+	throw std::invalid_argument("Non existing command type received");
 	return true;
 }
 

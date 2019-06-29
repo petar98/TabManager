@@ -9,12 +9,11 @@
 class Client
 {
 public:
-	Client(const PromptPrinter&/*, TabManagerServer& server*/);
+	Client(const PromptPrinter&);
 	void interactWithUser();
 private:
 	std::string convertToUppercase(std::string);
 	PromptPrinter promptPrinter;
-	//TabManagerServer tabManagerServer;
 	CommandFactory commandFactory;
 };
 

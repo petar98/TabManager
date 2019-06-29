@@ -142,5 +142,9 @@ void TabManagerServer::search(const std::string word)
 		{
 			current = tabsContainingWord[userIndex - 1];
 		}
+		else
+		{
+			throw std::out_of_range("Index out of range! Active tab not changed \n");
+		}
 	}
 }

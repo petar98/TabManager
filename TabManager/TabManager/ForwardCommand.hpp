@@ -2,17 +2,14 @@
 #define FORWARD_COMMAND_HPP_
 
 #include "Command.hpp"
-//#include "TabManagerServer.hpp"
 
 class ForwardCommand : public Command
 {
 public:
-	ForwardCommand(/*TabManagerServer& server*/);
+	ForwardCommand();
 	virtual ~ForwardCommand() = default;
 
-	virtual void execute() override;/*
-private:
-	TabManagerServer  tabManagerServer;*/
+	virtual void execute() override;
 };
 
 #endif

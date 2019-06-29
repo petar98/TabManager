@@ -25,13 +25,30 @@ void Client::interactWithUser()
 	{
 		promptPrinter();
 
+		std::cout << "$ ";
 		std::cin >> userInputCommand;
 		userInputCommand = convertToUppercase(userInputCommand);
 
 		if (commandFactory.checkCommandExistence(userInputCommand))
 		{
-			commandToExecute = commandFactory.getCommandByType(userInputCommand);
-			commandToExecute->execute();
+			try
+			{
+				commandToExecute = commandFactory.getCommandByType(userInputCommand);
+			}
+			catch (const std::invalid_argument& arg)
+			{
+				std::cout << arg.what();
+			}
+
+			try
+			{
+				commandToExecute->execute();
+			}
+			catch (const std::runtime_error& error)
+			{
+				std::cout << error.what();
+				commandToExecute->execute();
+			}
 		}
 	} while (commandFactory.checkCommandExistence(userInputCommand));
 
