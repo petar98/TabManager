@@ -2,17 +2,17 @@
 #define BACK_COMMAND_HPP_
 
 #include "Command.hpp"
-#include "TabManagerServer.hpp"
+//#include "TabManagerServer.hpp"
 
 class BackCommand : public Command
 {
 public:
-	BackCommand(TabManagerServer& tabManagerServer);
+	BackCommand(/*TabManagerServer& server*/);
 	virtual ~BackCommand() = default;
 
 	virtual void execute() override;
-private:
-	TabManagerServer tabManagerServer;
+//private:
+//	TabManagerServer tabManagerServer;
 };
 
 #endif

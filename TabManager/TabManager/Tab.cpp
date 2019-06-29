@@ -1,6 +1,6 @@
 #include "Tab.hpp"
 
-#pragma warning(disable: 4996) // need to be removed
+#pragma warning(disable: 4996)
 
 Tab::Tab()
 	:url("about:blank"), fetchTime(std::time(nullptr)), content("")
@@ -31,10 +31,8 @@ void Tab::load(std::string newUrl)
 	fileContent.open(path);
 	if (fileContent.is_open())
 	{
-		std::cout << "opened file" << std::endl;
 		content = std::string((std::istreambuf_iterator<char>(fileContent)),
 			(std::istreambuf_iterator<char>()));
-		std::cout << "ko stana we" << std::endl;
 		fileContent.close();
 	}
 	else
@@ -42,7 +40,6 @@ void Tab::load(std::string newUrl)
 		std::cout << "File not found" << std::endl;
 		content = "";
 	}
-	std::cout << "generateWordsFromContent" << std::endl;
 	generateWordsFromContent();
 }
 

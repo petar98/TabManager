@@ -2,17 +2,17 @@
 #define GO_COMMAND_HPP_
 
 #include "Command.hpp"
-#include "TabManagerServer.hpp"
+//#include "TabManagerServer.hpp"
 
 class GoCommand : public Command
 {
 public:
-	GoCommand(TabManagerServer& tabManagerServer);
+	GoCommand(/*TabManagerServer& server*/);
 	virtual ~GoCommand() = default;
 
 	virtual void execute() override;
-private:
-	TabManagerServer tabManagerServer;
+//private:
+//	TabManagerServer tabManagerServer;
 };
 
 #endif

@@ -1,5 +1,5 @@
-#ifndef TAB_MANAGER_SERVER_HPP
-#define TAB_MANAGER_SERVER_HPP
+#ifndef TAB_MANAGER_SERVER_HPP_
+#define TAB_MANAGER_SERVER_HPP_
 
 #include "Tab.hpp"
 #include <list>

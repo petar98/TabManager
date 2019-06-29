@@ -7,8 +7,6 @@ TabManagerServer::TabManagerServer()
 	tabs.push_front(empty);
 	current = tabs.begin();
 	openedTabs[current->getUrl()] = current;
-
-	std::cout << openedTabs.size() << std::endl;
 }
 
 void TabManagerServer::print() const
@@ -25,24 +23,17 @@ void TabManagerServer::print() const
 
 void TabManagerServer::go(const std::string url)
 {
-	std::cout << openedTabs.size() << std::endl;
 	auto required = openedTabs.find(url);
 	if (required == openedTabs.end())
 	{
-		std::cout << "Not found" << std::endl;
 		openedTabs.erase(current->getUrl());
-		std::cout << "Erased " << current->getUrl() << std::endl;
 		current->load(url);
-		std::cout << "Loaded" << std::endl;
 		openedTabs[url] = current;
-		std::cout << "new current" << std::endl;
 	}
 	else
 	{
-		std::cout << "found" << std::endl;
 		current = required->second;
 	}
-	std::cout << "finnished" << std::endl;
 }
 
 void TabManagerServer::insert(const std::string url)
@@ -65,7 +56,6 @@ void TabManagerServer::insert(const std::string url)
 		{
 			tabs.insert(next, url);
 			current = next;
-
 		}
 		openedTabs[url] = current;
 	}
@@ -117,12 +107,12 @@ void TabManagerServer::remove()
 
 void TabManagerServer::sortUrl()
 {
-	//std::stable_sort(tabs.begin(), tabs.end(), CompareTabsUrl());
+	std::stable_sort(tabs.begin(), tabs.end(), CompareTabsUrl());
 }
 
 void TabManagerServer::sortTime()
 {
-	//std::stable_sort(tabs.begin(), tabs.end(), CompareTabsTime());
+	std::stable_sort(tabs.begin(), tabs.end(), CompareTabsTime());
 }
 
 void TabManagerServer::search(const std::string word)
@@ -147,7 +137,8 @@ void TabManagerServer::search(const std::string word)
 		std::cout << "Choose id for active tab: ";
 		size_t userIndex = 0;
 		std::cin >> userIndex;
-		if (userIndex > 0 && userIndex < tabsContainingWord.size())
+
+		if (userIndex > 0 && userIndex <= tabsContainingWord.size())
 		{
 			current = tabsContainingWord[userIndex - 1];
 		}

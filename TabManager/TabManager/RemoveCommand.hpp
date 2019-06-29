@@ -2,17 +2,17 @@
 #define REMOVE_COMMAND_HPP_
 
 #include "Command.hpp"
-#include "TabManagerServer.hpp"
+//#include "TabManagerServer.hpp"
 
 class RemoveCommand : public Command
 {
 public:
-	RemoveCommand(TabManagerServer& tabManagerServer);
+	RemoveCommand(/*TabManagerServer& server*/);
 	virtual ~RemoveCommand() = default;
 
 	virtual void execute() override;
-private:
-	TabManagerServer tabManagerServer;
+//private:
+//	TabManagerServer tabManagerServer;
 };
 
 #endif

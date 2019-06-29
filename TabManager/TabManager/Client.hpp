@@ -9,14 +9,13 @@
 class Client
 {
 public:
-	Client(const PromptPrinter&);
+	Client(const PromptPrinter&/*, TabManagerServer& server*/);
 	void interactWithUser();
-	// void operate();
 private:
-	// TabManager tm;
 	std::string convertToUppercase(std::string);
-	CommandFactory commandFactory;
 	PromptPrinter promptPrinter;
+	//TabManagerServer tabManagerServer;
+	CommandFactory commandFactory;
 };
 
 #endif // !CLIENT_HPP_

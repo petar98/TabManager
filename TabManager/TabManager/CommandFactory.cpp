@@ -1,10 +1,13 @@
 #include "CommandFactory.hpp"
 #include "TabManagerServer.hpp"
-
 #include "GoCommand.hpp"
 #include "InsertCommand.hpp"
 #include "BackCommand.hpp"
 #include "ForwardCommand.hpp"
+#include "RemoveCommand.hpp"
+#include "PrintCommand.hpp"
+#include "SortCommand.hpp"
+#include "SearchCommand.hpp"
 
 #include <stdexcept>
 
@@ -17,8 +20,9 @@ CommandFactory::CommandFactory()
 
 CommandFactory::~CommandFactory()
 {
+	std::cout << "Deleting commands" << std::endl;
 	for (std::unordered_map<std::string, Command*>::iterator i = commands.begin();
-	i != commands.end(); ++i)
+		i != commands.end(); ++i)
 	{
 		delete i->second;
 	}
@@ -26,18 +30,14 @@ CommandFactory::~CommandFactory()
 
 void CommandFactory::initCommands()
 {
-	TabManagerServer tabManagerServer;
-	std::cout << &tabManagerServer << std::endl;
-
-	insertCommand("GO", new GoCommand(tabManagerServer));
-	insertCommand("INSERT", new InsertCommand(tabManagerServer));
-	insertCommand("BACK", new BackCommand(tabManagerServer));
-	insertCommand("FORWARD", new ForwardCommand(tabManagerServer));
-	// insertCommand("REMOVE", new GoCommand(tabManagerServer)); // command should be changed
-	// insertCommand("PRINT", new GoCommand(tabManagerServer)); // command should be changed
-	// insertCommand("URL", new GoCommand(tabManagerServer)); // command should be changed
-	// insertCommand("TIME", new GoCommand(tabManagerServer)); // command should be changed
-	// insertCommand("SEARCH", new GoCommand(tabManagerServer)); // command should be changed
+	insertCommand("GO", new GoCommand());
+	insertCommand("INSERT", new InsertCommand());
+	insertCommand("BACK", new BackCommand());
+	insertCommand("FORWARD", new ForwardCommand());
+	insertCommand("REMOVE", new RemoveCommand());
+	insertCommand("PRINT", new PrintCommand());
+	insertCommand("SORT", new SortCommand());
+	insertCommand("SEARCH", new SearchCommand());
 }
 
 bool CommandFactory::checkCommandExistence(const std::string type)
@@ -63,6 +63,7 @@ bool CommandFactory::removeCommand(const std::string type)
 		return true;
 	}
 	throw std::invalid_argument("non existing command type received");
+	return true;
 }
 
 Command* CommandFactory::getCommandByType(const std::string type)

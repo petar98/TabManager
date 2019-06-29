@@ -24,7 +24,7 @@ private:
 	std::time_t fetchTime;
 	std::set<std::string> fetchContent;
 	std::string content;
-	
+
 	void generateWordsFromContent();
 };
 

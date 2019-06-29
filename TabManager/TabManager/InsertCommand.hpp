@@ -2,17 +2,17 @@
 #define INSERT_COMMAND_HPP_
 
 #include "Command.hpp"
-#include "TabManagerServer.hpp"
+//#include "TabManagerServer.hpp"
 
 class InsertCommand : public Command
 {
 public:
-	InsertCommand(TabManagerServer& tabManagerServer);
+	InsertCommand(/*TabManagerServer& server*/);
 	virtual ~InsertCommand() = default;
 
-	virtual void execute() override;
+	virtual void execute() override;/*
 private:
-	TabManagerServer tabManagerServer;
+	TabManagerServer tabManagerServer;*/
 };
 
 #endif
