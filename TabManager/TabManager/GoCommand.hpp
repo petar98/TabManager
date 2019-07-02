@@ -9,7 +9,7 @@ public:
 	GoCommand();
 	virtual ~GoCommand() = default;
 
-	virtual void execute() override;
+	virtual CommandStatus execute() override;
 };
 
 #endif

@@ -16,6 +16,8 @@
 #include "../TabManager/Tab.hpp"
 #include "../TabManager/TabManagerServer.hpp"
 
+#include "../TabManager/Common.hpp"
+
 #include "../TabManager/PromptPrinter.cpp"
 #include "../TabManager/Client.cpp"
 #include "../TabManager/CommandFactory.cpp"
@@ -61,7 +63,8 @@ namespace unitTests
 		{
 			CommandFactory commandFactory;
 			std::string command = "BACK";
-			Assert::IsTrue(commandFactory.checkCommandExistence(command));
+			bool result = commandFactory.checkCommandExistence(command);
+			Assert::IsTrue(result);
 		}
 
 		TEST_METHOD(CommandFactoryForwardCommandTest)
@@ -149,6 +152,54 @@ namespace unitTests
 			}
 
 			Assert::IsTrue(exceptionThrown);
+		}
+	};
+
+	TEST_CLASS(CommandBackUnitTest)
+	{
+	public:
+		TEST_METHOD(CheckForInvokation)
+		{
+			Command* backCommand = new BackCommand;
+			CommandStatus status = STATUS_EXECUTED;
+			bool result = (status == backCommand->execute());
+			Assert::IsTrue(result);
+		}
+	};
+	
+	TEST_CLASS(CommandForwardUnitTest)
+	{
+	public:
+		TEST_METHOD(CheckForInvokation)
+		{
+			Command* forwardCommand = new ForwardCommand;
+			CommandStatus status = STATUS_EXECUTED;
+			bool result = (status == forwardCommand->execute());
+			Assert::IsTrue(result);
+		}
+	};
+
+	TEST_CLASS(CommandPrintUnitTest)
+	{
+	public:
+		TEST_METHOD(CheckForInvokation)
+		{
+			Command* printCommand = new PrintCommand;
+			CommandStatus status = STATUS_EXECUTED;
+			bool result = (status == printCommand->execute());
+			Assert::IsTrue(result);
+		}
+	};
+
+	TEST_CLASS(CommandRemoveUnitTest)
+	{
+	public:
+		TEST_METHOD(CheckForInvokation)
+		{
+			Command* removeCommand = new RemoveCommand;
+			CommandStatus status = STATUS_EXECUTED;
+			bool result = (status == removeCommand->execute());
+			Assert::IsTrue(result);
 		}
 	};
 }

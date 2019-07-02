@@ -5,7 +5,8 @@ PrintCommand::PrintCommand()
 {
 }
 
-void PrintCommand::execute()
+CommandStatus PrintCommand::execute()
 {
 	tabManagerServer.print();
+	return STATUS_EXECUTED;
 }

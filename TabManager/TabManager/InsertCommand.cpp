@@ -5,9 +5,10 @@ InsertCommand::InsertCommand()
 {
 }
 
-void InsertCommand::execute()
+CommandStatus InsertCommand::execute()
 {
 	std::string url = "";
 	std::cin >> url;
 	tabManagerServer.insert(url);
+	return STATUS_EXECUTED;
 }

@@ -9,7 +9,7 @@ public:
 	InsertCommand();
 	virtual ~InsertCommand() = default;
 
-	virtual void execute() override;
+	virtual CommandStatus execute() override;
 };
 
 #endif

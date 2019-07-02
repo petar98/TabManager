@@ -6,9 +6,10 @@ GoCommand::GoCommand()
 {
 }
 
-void GoCommand::execute()
+CommandStatus GoCommand::execute()
 {
 	std::string url = "";
 	std::cin >> url;
 	tabManagerServer.go(url);
+	return STATUS_EXECUTED;
 }

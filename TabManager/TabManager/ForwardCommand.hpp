@@ -9,7 +9,7 @@ public:
 	ForwardCommand();
 	virtual ~ForwardCommand() = default;
 
-	virtual void execute() override;
+	virtual CommandStatus execute() override;
 };
 
 #endif

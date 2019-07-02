@@ -9,7 +9,7 @@ public:
 	BackCommand();
 	virtual ~BackCommand() = default;
 
-	virtual void execute() override;
+	virtual CommandStatus execute() override;
 };
 
 #endif

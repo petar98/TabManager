@@ -14,7 +14,7 @@ std::string SortCommand::convertToUppercase(std::string input)
 	return input;
 }
 
-void SortCommand::execute()
+CommandStatus SortCommand::execute()
 {
 	std::string criteria = "";
 	std::cout << "Criteria for sorting <URL> or <TIME>: ";
@@ -24,10 +24,12 @@ void SortCommand::execute()
 	if (criteria == "URL")
 	{
 		tabManagerServer.sortUrl();
+		return STATUS_EXECUTED;
 	}
 	else if (criteria == "TIME")
 	{
 		tabManagerServer.sortTime();
+		return STATUS_EXECUTED;
 	}
 	else
 	{

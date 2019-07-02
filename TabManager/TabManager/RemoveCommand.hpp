@@ -9,7 +9,7 @@ public:
 	RemoveCommand();
 	virtual ~RemoveCommand() = default;
 
-	virtual void execute() override;
+	virtual CommandStatus execute() override;
 };
 
 #endif

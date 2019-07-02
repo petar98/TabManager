@@ -9,7 +9,7 @@ public:
 	PrintCommand();
 	virtual ~PrintCommand() = default;
 
-	virtual void execute() override;
+	virtual CommandStatus execute() override;
 };
 
 #endif

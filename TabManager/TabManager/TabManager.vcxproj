@@ -135,6 +135,7 @@
     <ClInclude Include="Client.hpp" />
     <ClInclude Include="Command.hpp" />
     <ClInclude Include="CommandFactory.hpp" />
+    <ClInclude Include="Common.hpp" />
     <ClInclude Include="ForwardCommand.hpp" />
     <ClInclude Include="GoCommand.hpp" />
     <ClInclude Include="InsertCommand.hpp" />

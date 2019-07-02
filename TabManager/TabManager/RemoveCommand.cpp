@@ -6,7 +6,8 @@ RemoveCommand::RemoveCommand()
 {
 }
 
-void RemoveCommand::execute()
+CommandStatus RemoveCommand::execute()
 {
 	tabManagerServer.remove();
+	return STATUS_EXECUTED;
 }

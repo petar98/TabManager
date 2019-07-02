@@ -6,7 +6,8 @@ ForwardCommand::ForwardCommand()
 {
 }
 
-void ForwardCommand::execute()
+CommandStatus ForwardCommand::execute()
 {
 	tabManagerServer.forward();
+	return STATUS_EXECUTED;
 }

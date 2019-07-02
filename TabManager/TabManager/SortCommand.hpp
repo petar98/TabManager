@@ -9,7 +9,7 @@ public:
 	SortCommand();
 	virtual ~SortCommand() = default;
 
-	virtual void execute() override;
+	virtual CommandStatus execute() override;
 private:
 	std::string convertToUppercase(std::string);
 };

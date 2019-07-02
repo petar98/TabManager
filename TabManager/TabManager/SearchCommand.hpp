@@ -9,7 +9,7 @@ public:
 	SearchCommand();
 	virtual ~SearchCommand() = default;
 
-	virtual void execute() override;
+	virtual CommandStatus execute() override;
 };
 
 #endif

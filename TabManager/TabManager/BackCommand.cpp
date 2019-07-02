@@ -8,7 +8,8 @@ BackCommand::BackCommand()
 {
 }
 
-void BackCommand::execute()
+CommandStatus BackCommand::execute()
 {
 	tabManagerServer.back();
+	return STATUS_EXECUTED;
 }
